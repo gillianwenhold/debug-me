@@ -2,7 +2,8 @@ require_relative './jukebox.rb'
 
 def run
   puts "Welcome to Ruby Console Jukebox!"
-  while command.downcase(command) != "exit" do
+  command = ""
+  while command.downcase != "exit" do
     puts "Enter a command to continue. Type 'help' for a list of commands."
     command = get_command
     run_command(command) unless command.downcase == "exit"
@@ -23,11 +24,12 @@ def run_command(command)
 end
 
 def show_help
-  help = "Never worked a jukebox, eh? Pretty standard. Available commands are:\n"
-  help += "'help' - shows this menu\n"
-  help += "'list' - lists the whole song library\n"
-  help += "or you can enter an artist's name to show that artist's songs\n"
-  help = "or you can enter an artist's name to show that artist's songs\n"
+  help = <<-HELP
+  "Never worked a jukebox, eh? Pretty standard. Available commands are:
+  'help' - shows this menu
+  'list' - lists the whole song library
+  or you can enter an artist's name to show that artist's songs!
+  HELP
   puts help
 end
 
